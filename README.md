@@ -4,6 +4,16 @@
 
 安装 
 ====================================
+1. 打开Android目录`工程目录/platforms/android/WeexFrameworkWrapper/app`，编辑app目录下`build.gradle` 文件,`dependencies`下添加引用，代码如下：；
+
+```
+  dependencies {
+      ....
+      implementation 'com.github.qbmFE:eros-plugin-android-dateTimePicker:1.0.0'
+  }
+```
+
+2. 添加完后，右上角 有一个 `sync now`。 点击 等待同步完成没有报错证明组件添加成功
 
 
 使用
@@ -44,11 +54,12 @@ dateTimePicker.open({
 ```
 界面截图
 ====================================
+![](https://image.qbm360.com/demo/dateTimePicker.gif)
 
 
 更新日志
 ====================================
-
+1、发布Android版本日期选择插件 1.0.0 beta1(2018-06-11)；
 
 License
 ====================================
