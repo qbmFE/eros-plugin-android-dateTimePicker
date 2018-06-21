@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.content.ContextCompat;
@@ -173,8 +174,8 @@ public class DatePickerView extends View {
         mViewHeight = getMeasuredHeight();
         mViewWidth = getMeasuredWidth();
         // 按照View的高度计算字体大小
-        mMaxTextSize = mViewHeight / 8.5f;
-        mMinTextSize = mMaxTextSize / 1.8f;
+        mMaxTextSize = mViewHeight / 10f;
+        mMinTextSize = mMaxTextSize / 1.6f;
         isInit = true;
         invalidate();
     }
@@ -186,12 +187,14 @@ public class DatePickerView extends View {
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setTextAlign(Paint.Align.CENTER);
+        mPaint.setTypeface(Typeface.SANS_SERIF);
         mPaint.setColor(ContextCompat.getColor(context, R.color.text_color_31));
 
         //第二个paint
         nPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         nPaint.setStyle(Paint.Style.FILL);
         nPaint.setTextAlign(Paint.Align.CENTER);
+        mPaint.setTypeface(Typeface.SANS_SERIF);
         nPaint.setColor(ContextCompat.getColor(context, R.color.text_color_cc));
     }
 
