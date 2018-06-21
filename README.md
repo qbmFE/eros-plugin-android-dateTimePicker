@@ -56,7 +56,7 @@ dateTimePicker.open({
 ```
 界面截图
 ====================================
-![](https://image.qbm360.com/demo/eros-plugin-android-dateTimePicker.gif)
+![](https://image.qbm360.com/demo/android-dateTimePicker.gif)
 
 
 更新日志
