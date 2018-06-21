@@ -119,7 +119,7 @@
             <com.qbm.datetimepicker.widget.DatePickerView
                 android:id="@+id/year_pv"
                 android:layout_width="0dp"
-                android:layout_height="180dp"
+                android:layout_height="220dp"
                 android:layout_weight="3"/>
 
             <TextView
@@ -134,7 +134,7 @@
             <com.qbm.datetimepicker.widget.DatePickerView
                 android:id="@+id/month_pv"
                 android:layout_width="0dp"
-                android:layout_height="180dp"
+                android:layout_height="220dp"
                 android:layout_weight="2"/>
 
             <TextView
@@ -149,7 +149,7 @@
             <com.qbm.datetimepicker.widget.DatePickerView
                 android:id="@+id/day_pv"
                 android:layout_width="0dp"
-                android:layout_height="180dp"
+                android:layout_height="220dp"
                 android:layout_weight="2"/>
 
             <TextView
@@ -164,7 +164,7 @@
             <com.qbm.datetimepicker.widget.DatePickerView
                 android:id="@+id/hour_pv"
                 android:layout_width="0dp"
-                android:layout_height="180dp"
+                android:layout_height="220dp"
                 android:layout_weight="2"/>
 
             <TextView
@@ -179,7 +179,7 @@
             <com.qbm.datetimepicker.widget.DatePickerView
                 android:id="@+id/minute_pv"
                 android:layout_width="0dp"
-                android:layout_height="180dp"
+                android:layout_height="220dp"
                 android:layout_weight="2"/>
 
         </LinearLayout>
