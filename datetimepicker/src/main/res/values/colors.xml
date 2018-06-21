@@ -8,6 +8,9 @@
     <color name="split_line">#11112233</color>
     <color name="text1">#59B29C</color>
     <color name="text2">#333333</color>
+    <color name="text_color_31">#313131</color>
+    <color name="text_color_B4">#00B4FF</color>
+    <color name="text_color_cc">#cccccc</color>
 
     <color name="color1">#F0F0F0</color>
     <color name="color2">#FFFFFF</color>

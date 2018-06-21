@@ -6,19 +6,18 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/background"
-        android:padding="10dp">
+        android:layout_height="45dp"
+        android:background="@color/background">
 
         <TextView
             android:id="@+id/tv_cancle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:padding="10dp"
+            android:layout_marginLeft="15dp"
             android:text="@string/cancle"
-            android:textColor="@color/text1"
-            android:textSize="16sp"/>
+            android:textColor="@color/text_color_31"
+            android:textSize="15sp"/>
 
         <TextView
             android:id="@+id/tv_title"
@@ -26,19 +25,19 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/title"
-            android:textColor="@color/text1"
-            android:textSize="20sp"/>
+            android:textColor="@color/text_color_31"
+            android:textSize="15sp"/>
 
         <TextView
             android:id="@+id/tv_select"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:padding="10dp"
+            android:layout_centerVertical="true"
             android:text="@string/commit"
-            android:textColor="@color/text1"
-            android:textSize="16sp"/>
+            android:layout_marginRight="15dp"
+            android:textColor="@color/text_color_B4"
+            android:textSize="15sp"/>
 
     </RelativeLayout>
 
@@ -47,17 +46,17 @@
         android:layout_height="0.5dp"
         android:background="@color/split_line"/>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:paddingTop="15dp">
+            android:paddingTop="15dp"
+            android:visibility="gone">
 
             <TextView
                 android:layout_width="0dp"
@@ -115,8 +114,8 @@
             android:background="@color/background"
             android:orientation="horizontal"
             android:paddingBottom="15dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
             android:paddingTop="5dp">
 
             <com.qbm.datetimepicker.widget.DatePickerView
@@ -125,6 +124,14 @@
                 android:layout_height="160dp"
                 android:layout_weight="3"/>
 
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/year"
+                android:textColor="@color/text2"
+                android:textSize="18sp"/>
 
             <com.qbm.datetimepicker.widget.DatePickerView
                 android:id="@+id/month_pv"
@@ -132,6 +139,14 @@
                 android:layout_height="160dp"
                 android:layout_weight="2"/>
 
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/month"
+                android:textColor="@color/text2"
+                android:textSize="18sp"/>
 
             <com.qbm.datetimepicker.widget.DatePickerView
                 android:id="@+id/day_pv"
@@ -139,12 +154,29 @@
                 android:layout_height="160dp"
                 android:layout_weight="2"/>
 
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/day"
+                android:textColor="@color/text2"
+                android:textSize="18sp"/>
 
             <com.qbm.datetimepicker.widget.DatePickerView
                 android:id="@+id/hour_pv"
                 android:layout_width="0dp"
                 android:layout_height="160dp"
                 android:layout_weight="2"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text=":"
+                android:textColor="@color/text2"
+                android:textSize="18sp"/>
 
             <com.qbm.datetimepicker.widget.DatePickerView
                 android:id="@+id/minute_pv"
@@ -154,6 +186,6 @@
 
         </LinearLayout>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>

@@ -186,13 +186,13 @@ public class DatePickerView extends View {
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setTextAlign(Paint.Align.CENTER);
-        mPaint.setColor(ContextCompat.getColor(context, R.color.text2));
+        mPaint.setColor(ContextCompat.getColor(context, R.color.text_color_31));
 
         //第二个paint
         nPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         nPaint.setStyle(Paint.Style.FILL);
         nPaint.setTextAlign(Paint.Align.CENTER);
-        nPaint.setColor(ContextCompat.getColor(context, R.color.text2));
+        nPaint.setColor(ContextCompat.getColor(context, R.color.text_color_cc));
     }
 
     @Override

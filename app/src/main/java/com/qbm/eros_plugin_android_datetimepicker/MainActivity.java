@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.CHINA);
                 String now = sdf.format(new Date());
-                customDatePicker = new CustomDatePicker(mContext, "2018-02-25 12:24", "2020-12-30 23:59", "123", "#0092ff",
+                customDatePicker = new CustomDatePicker(mContext, "2016-02-26 00:00", "2099-12-31 23:59", "123", "#0092ff",
                         "确认", "#0092ff", "取消", "#0092ff", now,
                         new CustomDatePicker.OnPickListener() {
 
