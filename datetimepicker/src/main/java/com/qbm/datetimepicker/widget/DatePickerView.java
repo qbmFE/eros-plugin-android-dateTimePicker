@@ -173,8 +173,8 @@ public class DatePickerView extends View {
         mViewHeight = getMeasuredHeight();
         mViewWidth = getMeasuredWidth();
         // 按照View的高度计算字体大小
-        mMaxTextSize = mViewHeight / 7f;
-        mMinTextSize = mMaxTextSize / 2.2f;
+        mMaxTextSize = mViewHeight / 8.5f;
+        mMinTextSize = mMaxTextSize / 1.8f;
         isInit = true;
         invalidate();
     }

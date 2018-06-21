@@ -9,7 +9,7 @@
 ```
   dependencies {
       ....
-      implementation 'com.github.qbmFE:eros-plugin-android-dateTimePicker:1.0.1'
+      implementation 'com.github.qbmFE:eros-plugin-android-dateTimePicker:1.0.3'
   }
 ```
 
@@ -60,7 +60,7 @@ dateTimePicker.open({
 更新日志
 ====================================
 1、发布Android版本日期选择插件 1.0.0 beta1(2018-06-11);
-2、调整插件UI,版本更新至1.0.1(2018-06-21);
+2、调整控件UI,版本更新至1.0.3(2018-06-21);
 
 License
 ====================================
