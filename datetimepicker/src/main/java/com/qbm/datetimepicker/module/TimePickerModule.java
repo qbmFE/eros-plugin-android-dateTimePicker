@@ -59,9 +59,9 @@ public class TimePickerModule extends WXModule {
         String min = getOption(params, KEY_MIN, "1900-12-31 00:00");
         String titleColor = getOption(params, KEY_TITLE_COLOR, "#313131");
         String confirmTitle = getOption(params, KEY_CONFIRM_TITLE, "确认");
-        String confirmTitleColor = getOption(params, KEY_CONFIRM_TITLE_COLOR, "#313131");
+        String confirmTitleColor = getOption(params, KEY_CONFIRM_TITLE_COLOR, "#00B4FF");
         String cancelTitle = getOption(params, KEY_CANCEL_TITLE, "取消");
-        String cancelTitleColor = getOption(params, KEY_CANCEL_TITLE_COLOR, "#00B4FF");
+        String cancelTitleColor = getOption(params, KEY_CANCEL_TITLE_COLOR, "#313131");
 
 
         new CustomDatePicker(mWXSDKInstance.getContext(), min, max, title, titleColor,
