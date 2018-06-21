@@ -1,6 +1,6 @@
-# 日期时间选择插件
+# 日期时间选择器插件
 
-基于WEEX二次开发的日期时间选择插件
+基于WEEX二次开发的日期时间选择器插件
 
 安装 
 ====================================
@@ -9,11 +9,13 @@
 ```
   dependencies {
       ....
-      implementation 'com.github.qbmFE:eros-plugin-android-dateTimePicker:1.0.3'
+      implementation 'com.github.qbmFE:eros-plugin-android-dateTimePicker:1.0.0'
   }
 ```
 
-2. 添加完后，右上角 有一个 `sync now`。 点击 等待同步完成没有报错证明组件添加成功
+2. 添加完后，右上角 有一个 `sync now`。 点击 等待同步完成没有报错证明组件添加成功;
+3. Build -  Clean Project;
+4. Run 'app';
 
 
 使用
@@ -59,8 +61,8 @@ dateTimePicker.open({
 
 更新日志
 ====================================
-1、发布Android版本日期选择插件 1.0.0 beta1(2018-06-11);
-2、调整控件UI,版本更新至1.0.3(2018-06-21);
+* 发布Android版日期时间选择器 1.0.0 beta1(2018-06-11);
+
 
 License
 ====================================
