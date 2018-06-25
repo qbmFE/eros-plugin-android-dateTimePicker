@@ -2,6 +2,7 @@ package com.qbm.datetimepicker.widget;
 
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
+import android.animation.ValueAnimator;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
@@ -12,9 +13,19 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.OvershootInterpolator;
+import android.view.animation.RotateAnimation;
+import android.view.animation.ScaleAnimation;
+import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
 
 
+import com.bumptech.glide.request.animation.ViewPropertyAnimation;
 import com.qbm.datetimepicker.R;
 
 import java.text.ParseException;
@@ -71,7 +82,7 @@ public class CustomDatePicker {
     private Calendar selectedCalender, startCalendar, endCalendar;
     private TextView tv_cancle, tv_select, hour_text, minute_text;
 
-    private String startDate, endDate;
+    private String startDate, endDate, now;
 
     private int oldSelectedDay, oldSelectedMonth, oldSelectedHour, oldSelectedMinute;
 
@@ -94,6 +105,7 @@ public class CustomDatePicker {
             this.cancelTitleColor = cancelTitleColor;
             this.startDate = startDate;
             this.endDate = endDate;
+            this.now = value;
             selectedCalender = Calendar.getInstance();
             startCalendar = Calendar.getInstance();
             endCalendar = Calendar.getInstance();
@@ -109,9 +121,21 @@ public class CustomDatePicker {
 
             showSpecificTime(true); // 显示时和分
             setIsLoop(true); // 允许循环滚动
-            show(value);
+            try {
+                if (dateToStamp(startDate) > dateToStamp(value)) {
+                    show(startDate);
+                } else if (dateToStamp(value) > dateToStamp(endDate)) {
+                    show(endDate);
+                } else {
+                    show(value);
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+                show(value);
+            }
         }
     }
+
 
     private void initDialog() {
         if (datePickerDialog == null) {
@@ -203,9 +227,33 @@ public class CustomDatePicker {
         spanDay = (!spanMon) && (startDay != endDay);
         spanHour = (!spanDay) && (startHour != endHour);
         spanMin = (!spanHour) && (startMinute != endMinute);
-        Date time = startCalendar.getTime();
-        selectedCalender.setTime(time);
 
+        try {
+            if (dateToStamp(startDate) > dateToStamp(now)) {
+                Date time = startCalendar.getTime();
+                selectedCalender.setTime(time);
+            } else if (dateToStamp(now) > dateToStamp(endDate)) {
+                Date time = endCalendar.getTime();
+                selectedCalender.setTime(time);
+            } else {
+                Date time = selectedCalender.getTime();
+                selectedCalender.setTime(time);
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+            Date time = selectedCalender.getTime();
+            selectedCalender.setTime(time);
+        }
+    }
+
+    /*
+     * 将时间转换为时间戳
+     */
+    public static long dateToStamp(String s) throws ParseException {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        Date date = simpleDateFormat.parse(s);
+        long ts = date.getTime();
+        return ts;
     }
 
     private void initTimer() {
@@ -539,8 +587,8 @@ public class CustomDatePicker {
             int hourOfDay = selectedCalender.get(Calendar.HOUR_OF_DAY);//当前日期
             if (selectedYear == startYear && selectedMonth == startMonth && hourSize != hoursCount) {
                 int beginStartHourSize = hoursCount - hourSize;//在起始日期前的天数
-                if (hourOfDay < beginStartHourSize) {
-                    selectedCalender.set(Calendar.HOUR_OF_DAY, beginStartHourSize);
+                if (hourOfDay > beginStartHourSize) {
+                    selectedCalender.set(Calendar.HOUR_OF_DAY, beginStartHourSize + 1);
                     hour_pv.setSelected(0);
                 } else if (hourOfDay == beginStartHourSize) {
                     selectedCalender.set(Calendar.HOUR_OF_DAY, hourOfDay + 1);
@@ -551,8 +599,8 @@ public class CustomDatePicker {
                 }
 
             } else if (selectedYear == endYear && selectedMonth == endMonth && (hourOfDay > hourSize)) {
-                selectedCalender.set(Calendar.HOUR_OF_DAY, hourSize);
-                hour_pv.setSelected(hourSize);
+                selectedCalender.set(Calendar.HOUR_OF_DAY, hourSize - 1);
+                hour_pv.setSelected(hourSize - 1);
             } else {
                 hour_pv.setSelected(hourOfDay);
             }
@@ -599,8 +647,8 @@ public class CustomDatePicker {
             int minteOfHour = selectedCalender.get(Calendar.MINUTE);//当前日期
             if (selectedYear == startYear && selectedMonth == startMonth && selectedHour == startHour && minuteSize != minutesCount) {
                 int beginStartMinuteSize = minutesCount - minuteSize;//在起始日期前的天数
-                if (minteOfHour < beginStartMinuteSize) {
-                    selectedCalender.set(Calendar.MINUTE, beginStartMinuteSize);
+                if (minteOfHour > beginStartMinuteSize) {
+                    selectedCalender.set(Calendar.MINUTE, beginStartMinuteSize + 1);
                     minute_pv.setSelected(0);
                 } else if (minteOfHour == beginStartMinuteSize) {
                     selectedCalender.set(Calendar.MINUTE, minteOfHour + 1);
@@ -611,8 +659,8 @@ public class CustomDatePicker {
                 }
 
             } else if (selectedYear == endYear && selectedMonth == endMonth && selectedHour == endHour && (minteOfHour > minuteSize)) {
-                selectedCalender.set(Calendar.MINUTE, minuteSize);
-                minute_pv.setSelected(minuteSize);
+                selectedCalender.set(Calendar.MINUTE, minuteSize - 1);
+                minute_pv.setSelected(minuteSize - 1);
             } else {
                 minute_pv.setSelected(minteOfHour);
             }
